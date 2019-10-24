@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c939a7cf-e9c0-439d-8341-747ce2e268b9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Component/ActiveQuiz/ActiveQuiz.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Component/ActiveQuiz/ActiveQuiz.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Containers/Quiz/Quiz.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Containers/Quiz/Quiz.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hoc/Layout/Layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/Layout/Layout.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hoc/Layout/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/Layout/Layout.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,7 +58,7 @@
       <updated>1571904597487</updated>
       <workItem from="1571904598717" duration="6562000" />
       <workItem from="1571913078372" duration="2729000" />
-      <workItem from="1571915809117" duration="3121000" />
+      <workItem from="1571915809117" duration="6776000" />
     </task>
     <task id="LOCAL-00001" summary="project">
       <created>1571915241015</created>
@@ -73,7 +74,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571916945577</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="module css">
+      <created>1571920906138</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1571920906138</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,6 +104,7 @@
     <MESSAGE value="Create reacr quiz" />
     <MESSAGE value="project" />
     <MESSAGE value="create Layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="create Layout" />
+    <MESSAGE value="module css" />
+    <option name="LAST_COMMIT_MESSAGE" value="module css" />
   </component>
 </project>
