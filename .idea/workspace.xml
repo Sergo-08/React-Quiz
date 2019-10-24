@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c939a7cf-e9c0-439d-8341-747ce2e268b9" name="Default Changelist" comment="" />
+    <list default="true" id="c939a7cf-e9c0-439d-8341-747ce2e268b9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/Layout/Layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/Layout/Layout.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hoc/Layout/Layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hoc/Layout/Layout.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +57,7 @@
       <updated>1571904597487</updated>
       <workItem from="1571904598717" duration="6562000" />
       <workItem from="1571913078372" duration="2729000" />
-      <workItem from="1571915809117" duration="1137000" />
+      <workItem from="1571915809117" duration="3121000" />
     </task>
     <task id="LOCAL-00001" summary="project">
       <created>1571915241015</created>
