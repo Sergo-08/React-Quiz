@@ -5,6 +5,7 @@ import FinishedQuiz from "../../Component/FinishedQuiz/FinishedQuiz";
 
 class Quiz extends Component {
     state = {
+        results: {},
         isFinished: false,
         activeQuestion: 0,
         answerState: null,
@@ -42,9 +43,14 @@ class Quiz extends Component {
             }
         }
         const question = this.state.quiz[this.state.activeQuestion];
+        const results = this.state.results;
         if (question.rightAnswersId === answerId) {
+            if ( !results[question.id] ){
+                results[question.id] = 'success'
+            }
             this.setState({
-                answerState: {[answerId]: 'success'}
+                answerState: {[answerId]: 'success'},
+                results,
             });
 
             const timeout = window.setTimeout(() => {
@@ -62,15 +68,28 @@ class Quiz extends Component {
                 window.clearTimeout(timeout)
             }, 1000)
         } else {
+            results[question.id] = 'error'
             this.setState({
-                answerState: {[answerId]: 'error'}
+                answerState: {[answerId]: 'error'},
+                results,
             })
         }
+    };
+
+     retryHandler = () => {
+      this.setState({
+          activeQuestion: 0,
+          answerState: null,
+          isFinished: false,
+          results: {},
+
+      })
     };
 
     isQuizFinished() {
         return this.state.activeQuestion + 1 === this.state.quiz.length
     }
+
 
     render() {
         return (
@@ -78,7 +97,11 @@ class Quiz extends Component {
                 <div className={classes.QuizWrapper}>
                     <h1>Answer all questions:</h1>
                     {this.state.isFinished
-                        ? <FinishedQuiz />
+                        ? <FinishedQuiz
+                        results={this.state.results}
+                        quiz={this.state.quiz}
+                        onRetry={this.retryHandler}
+                        />
                         :<AciveQuiz
                             answers={this.state.quiz[this.state.activeQuestion].answers}
                             question={this.state.quiz[this.state.activeQuestion].question}
