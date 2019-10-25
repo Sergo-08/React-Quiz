@@ -2,12 +2,12 @@ import React from 'react';
 import classes from './ActiveQuiz.module.scss';
 import AnswersList from "./AnswersList/AnswersList";
 
-const AciveQuiz = (props) => (
+const AciveQuiz = props => (
     <div className={classes.ActivQuiz}>
         <p className={classes.Question}>
             <span>
             <strong>2. </strong>
-                How are you?
+                {props.question}
             </span>
 
             <small>4 of 12</small>
@@ -15,8 +15,9 @@ const AciveQuiz = (props) => (
 
         <AnswersList
             answers={props.answers}
+            onAnswerClick={props.onAnswerClick}
         />
     </div>
-)
+);
 
 export default AciveQuiz;
