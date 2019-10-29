@@ -4,16 +4,68 @@ import Button from "../../Component/UI/Button/Button";
 import Input from "../../Component/UI/Input/Input";
 
 class Auth extends Component {
+    state = {
+        formControls: {
+            email: {
+                value: '',
+                type: 'email',
+                label: 'Email',
+                errorMessage: 'Введите корректный email',
+                valid: false,
+                touched: false,
+                validation: {
+                    required: true,
+                    email: true
+                }
+            },
+            password: {
+                value: '',
+                type: 'password',
+                label: 'Password',
+                errorMessage: 'Введите корректный Password',
+                valid: false,
+                touched: false,
+                validation: {
+                    required: true,
+                    minLength: 6,
+                }
+            },
+        }
+    };
+
     loginHandler = () => {
 
-    }
+    };
 
     registerHandler = () => {
 
-    }
+    };
 
     submitHandler = (event) => {
         event.preventDefault()
+    };
+
+    onchangeHandler = (event, controlName) => {
+console.log(`${controlName}:`, event.target.value)
+    }
+
+    renderInputs() {
+        return Object.keys(this.state.formControls).map((controlName, index) => {
+            const control = this.state.formControls[controlName];
+            return (
+                <Input
+                    key={controlName + index}
+                    type={control.type}
+                    value={control.value}
+                    valid={control.valid}
+                    touched={control.touched}
+                    label={control.label}
+                    shouldValidate={!!control.validation}
+                    errorMessage={control.errorMessage}
+                    onChange={event => this.onchangeHandler(event, controlName)}
+                />
+            )
+        })
     }
 
     render() {
@@ -24,12 +76,7 @@ class Auth extends Component {
 
                     <form onSubmit={this.submitHandler} className={classes.AuthForm}>
 
-                        <Input label="Email" />
-
-                        <Input label="Password"
-
-                        />
-
+                        {this.renderInputs()}
 
                         <Button
                             type="success"
