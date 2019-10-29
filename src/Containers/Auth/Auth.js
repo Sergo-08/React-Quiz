@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import classes from './Auth.module.scss'
 import Button from "../../Component/UI/Button/Button";
+import Input from "../../Component/UI/Input/Input";
 
 class Auth extends Component {
     loginHandler = () => {
@@ -22,8 +23,13 @@ class Auth extends Component {
                     <h1>Авторизация</h1>
 
                     <form onSubmit={this.submitHandler} className={classes.AuthForm}>
-                        <input type="text"/>
-                        <input type="text"/>
+
+                        <Input label="Email" />
+
+                        <Input label="Password"
+
+                        />
+
 
                         <Button
                             type="success"
