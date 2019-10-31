@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import classes from './QuizCreator.module.scss';
 import Button from "../../Component/UI/Button/Button";
-import {createControl} from '../../form/formFramework';
+import {createControl, validate, validateForm} from '../../form/formFramework';
 import Input from "../../Component/UI/Input/Input";
 import Select from "../../Component/UI/Select/Select";
 
@@ -31,7 +31,8 @@ const createFormControls = () => {
 class QuizCreator extends Component {
     state = {
         quiz: [],
-        rightAnswerId:1,
+        isFormValid: false,
+        rightAnswerId: 1,
         formControls: createFormControls(),
     }
 
@@ -39,17 +40,29 @@ class QuizCreator extends Component {
         event.preventDefault()
     };
 
-    addQuestionHandler = () => {
-
+    addQuestionHandler = (event) => {
+        event.preventDefault()
     };
 
     createQuizHandler = () => {
 
     };
 
-    changeHandler = (value, cont) => {
+    changeHandler = (value, controlName) => {
+        const formControls = {...this.state.formControls};
+        const control = {...formControls[controlName]};
 
-    }
+        control.touched = true;
+        control.value = value;
+        control.valid = validate(control.value, control.validation);
+
+        formControls[controlName] = control;
+
+        this.setState({
+            formControls,
+            isFormValid: validateForm(formControls),
+        })
+    };
 
     renderControls() {
         return Object.keys(this.state.formControls).map((controlName, index) => {
@@ -72,10 +85,10 @@ class QuizCreator extends Component {
     }
 
     selectChangeHandler = (event) => {
-this.setState({
-    rightAnswerId: event.target.value
-})
-};
+        this.setState({
+            rightAnswerId: event.target.value
+        })
+    };
 
     render() {
         const select = <Select
@@ -98,11 +111,12 @@ this.setState({
 
                         {this.renderControls()}
 
-                        { select }
+                        {select}
 
                         <Button
                             type="primary"
                             onClick={this.addQuestionHandler}
+                            disabled={!this.state.isFormValid}
                         >
                             Добавить вопрос
                         </Button>
@@ -110,6 +124,7 @@ this.setState({
                         <Button
                             type="success"
                             onClick={this.createQuizHandler}
+                            disabled={this.state.quiz.length === 0}
                         >
                             Создать тест
                         </Button>
