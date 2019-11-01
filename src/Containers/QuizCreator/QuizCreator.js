@@ -4,7 +4,7 @@ import Button from "../../Component/UI/Button/Button";
 import {createControl, validate, validateForm} from '../../form/formFramework';
 import Input from "../../Component/UI/Input/Input";
 import Select from "../../Component/UI/Select/Select";
-import axios from 'axios';
+import axios from '../../axios/axios-quiz';
 
 const createOptionControl = (number) => {
     return createControl({
@@ -35,23 +35,23 @@ class QuizCreator extends Component {
         isFormValid: false,
         rightAnswerId: 1,
         formControls: createFormControls(),
-    }
+    };
 
     submitHandler = (event) => {
         event.preventDefault()
     };
 
     addQuestionHandler = (event) => {
-        event.preventDefault()
+        event.preventDefault();
 
         const quiz = this.state.quiz.concat();
         const index = quiz.length + 1;
-        const {question, option1, option2, option3, option4} = this.state.formControls
+        const {question, option1, option2, option3, option4} = this.state.formControls;
 
         const questionItem = {
             question: question.value,
             id: index,
-            rightAnswerId: this.state.rightAnswerId,
+             rightAnswerId: this.state.rightAnswerId,
             answers: [
                 {text: option1.value, id: option1.id},
                 {text: option2.value, id: option2.id},
@@ -59,7 +59,7 @@ class QuizCreator extends Component {
                 {text: option4.value, id: option4.id},
             ]
         };
-        quiz.push(questionItem)
+        quiz.push(questionItem);
 
         this.setState({
             quiz,
@@ -73,13 +73,14 @@ class QuizCreator extends Component {
         event.preventDefault();
 
         try{
-            await axios.post('https://react-quiz-6a4c5.firebaseio.com/quizes.json', this.state.quiz)
+            await axios.post('/quizes.json', this.state.quiz);
             this.setState({
                 quiz: [],
                 isFormValid: false,
                 rightAnswerId: 1,
                 formControls: createFormControls()
             })
+
         }catch (e) {
             console.log(e)
         }
@@ -123,7 +124,7 @@ class QuizCreator extends Component {
 
     selectChangeHandler = (event) => {
         this.setState({
-            rightAnswerId: event.target.value
+            rightAnswerId: +event.target.value
         })
     };
 
